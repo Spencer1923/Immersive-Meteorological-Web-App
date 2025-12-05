@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Api Web app</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="link">
+      <a href="documentation.html">Documentation</a>
+    </div>
+
+      <h1>Immersive Meteorological Web App</h1>
+      <button id="start_button">Start Audio</button>
+      <button id="data_button">Get Weather</button>
+      <label for="volume_slider">Volume:</label>
+      <input type="range" id="volume_slider" min="0" max="100" value="50" />
+
+
+    <br /><br />
+
+    <!-- city dropdown  -->
+    <label for="city">Choose a city:</label>
+    <select id="city" name="city">
+      <option value="">Select a city</option>
+      <option value="toronto">Toronto</option>
+      <option value="vancouver">Vancouver</option>
+      <option value="london">London</option>
+      <option value="tokyo">Tokyo</option>
+      <option value="new-york">New York</option>
+      <option value="las-vegas">Las Vegas</option>
+      <option value="mumbai">Mumbai</option>
+      <option value="winnipeg">Winnipeg</option>
+      <option value="chicago">Chicago</option>
+      <option value="moscow">Moscow</option>
+      <option value="sydney">Sydney</option>
+      <option value="paris">Paris</option>
+      <option value="beijing">Beijing</option>
+      <option value="lagos">Lagos</option>
+      <option value="singapore">Singapore</option>
+      <option value="sao-paulo">São Paulo</option>
+    </select>
+
+    <!-- manual lat and lon inputs -->
+    <label for="lat">Latitude:</label>
+    <input type="number" id="lat" name="lat" min="-90" max="90" step="0.0001" />
+    <label for="lon">Longitude:</label>
+    <input
+      type="number"
+      id="lon"
+      name="lon"
+      min="-180"
+      max="180"
+      step="0.0001"
+    />
+    <button id="random_button">Random</button>
+    <!--randomize lat and lon btn-->
+
+    <br /><br />
+    <p id="local_time">Local Time:</p>
+
+    <script src="index.js"></script>
+  </body>
+  <canvas id="weather-canvas"></canvas>
+</html>

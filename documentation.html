@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentation</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        max-width: 900px;
+        margin: 20px auto;
+      }
+      p {
+        margin-bottom: 1em;
+      }
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="index.html">Go Back</a>
+    <h1>Project Documentation</h1>
+    <p>
+      To run this web app properly:<br />
+      1. Click Start Audio<br />
+      2. Enter desired destination’s Latitude and Longitude coordinates or
+      select a preloaded city from the dropdown or click random to randomize
+      Latitude and Longitude.<br />
+      3. Click Get Weather to fetch data<br />
+      4. Adjust volume slider to your liking (optional)
+    </p>
+    <p>
+      While developing my gen patcher in max mostly all my in-depth detailed
+      comments I made while developing it in included within the patcher but
+      I’ll provide a general overview. I started planning out the different
+      sounds I wanted to created with the different parameter values. Because I
+      couldn’t use any external audio files or built in max audio, I wanted each
+      sound to realistically represent the value of each parameter through
+      audio.
+    </p>
+    <p>
+      For my webpage, I started with the template from the lecture where it uses
+      the weather api, RNBO and javascript to map the feels like value to the
+      pitch of the sound. So I just added on to that and first started with the
+      html by adding more buttons and inputs. Besides the start audio and get
+      weather buttons I made a dropdown with preselected popular cities of all
+      regions across the globe to chose from and preload their latitude and
+      longitude coordinates. I also in placed an input field to enter custom lat
+      and lon coordinates if the user chooses to do so with proper mi and max
+      values so theres no errors. Then the last few touches I added to the html
+      were a randomize lat and lon button to get the instant weather from any
+      random place on earth and a volume slider because as intended some weather
+      sounds are designed to be much louder than others so the user has more
+      control with a volume slider. For this documentation page I simply created
+      a new html file within the original folder and make a link to it from my
+      original webpage to access it. Besides the html I used simple css to do
+      very basic things like position, margin and padding for the buttons and
+      inputs, display the link at the end and make sure the canvas for drawings
+      with javascript is at the back with a z-index of -1.
+    </p>
+    <p>
+      For creating my visuals based on the weather params, I was inspired by the
+      apple weather app which has visuals for almost every type of weather with
+      variables for amount of sun, clouds, precipitation, fog, wind and more, so
+      my plan was to make it as dynamic as possible. I decided to create
+      everything with java script using the canvas API because I have a lot of
+      experience with it as I took a creative coding class this semester where
+      all the work was done with p5.js where I learned to how make drawings,
+      animation, games, data visualization and audio visualization, so I applied
+      a lot of that knowledge into this project, here is a link to my p5 account
+      to check out some of the work I did:
+      https://editor.p5js.org/Spencer_Samra/sketches. Like max where a lot of
+      time is spent slightly changing different values to tune the sound, I did
+      the same for my visuals where I slightly had to adjust certain values
+      after testing it from playing around with sample data to get it what I
+      wanted it to look like. In both max and my code I had sample data
+      preloaded where I could change each and every param to see all possible
+      outcomes or to isolate a parameter to make changes where needed.
+    </p>
+    <p>
+      I had core ideas that I set out to follow but like many times before I had
+      to change and add to certain ideas to improve them during the development
+      process for the better of my project. These are the main parameters and
+      how they influence my web app.<br />- Feels Like influences pitch of the
+      harmonic and Temperature determines the harmonic note the cycle length its
+      multiplied by <br />- Windspeed determines how much wind sound is output,
+      where greater Windspeed results in more wind sound and creates a relative
+      number of wind particles traveling across the screen at a speed relative
+      to Windspeed and in the direction controlled mapped to Wind deg. <br />-
+      Current local time and weather conditions determine the background color.
+      Low visibility results fog and blurry visuals, a lot of clouds make it
+      appear more dull, clear or sunny days will allow full colors to show.
+      <br />- Humidity produces a slight annoying/uncomfortable/buzzing sharp
+      harmonic sound where pitch, harmonic and the cycle its multiplied by are
+      mapped to the percentage. It’s shown by amount of water droplets on edge
+      of the screen. <br />- The Sunrise and Sunset along with current local
+      time determine the position of sun in its arc which impacts overall
+      volume, its shown with a visual sunrise/sunset. <br />- Rain produces
+      rainy sounds and falling rain drops on the screen. <br />- Drizzle
+      produces a smoother, slower less chaotic rainy sound and less raindrops
+      falling that are smaller and slower. <br />- The latitude and longitude
+      determine the ratio/balance between each audio channel, London is balanced
+      but Toronto is more on the left. <br />- Thunder generates deep rumbling
+      bass sounds where the pressure parameter and random chance determine the
+      beat pace. It’s shown with random flashing lightning bolts across the
+      screen. <br />- The Sea Level and Ground Level parameter creates pulsing
+      sound where the Ground Level determines how far apart pulses are, the Sea
+      Level determines the length of the echo and the Sea Level is scaled into
+      different background notes to make the sound layered and smoother. <br />-
+      Snow is represented by sound created to mimic organic natural snowfalls
+      which is slow, peaceful and light and is shown with snow flakes slowly
+      falling down the screen. <br />- Wind Gust correlates to sudden and
+      somewhat random bursts of wind noise where the amplitude, duration and
+      frequency all directly correlate to the parameter.
+    </p>
+    <p>
+      The exporting process worked well in the end after doing it many times to
+      keep testing throughout development, copying the gen~ patch to RNBO and
+      exposing params then exporting, then updating my patcher in javascript
+      became a simple process.
+    </p>
+    <p>
+      I originally had some extra ideas that were add on features to this
+      project that I found out were possible to pursue because of the limits
+      within the weather API. I was planing on implementing a time travel
+      feature where the user can pick a past date to get weather data from and a
+      feature that would use future forecasts to get weather data. Since I
+      couldn’t do these I came up with other features like a random lat and lon
+      button to instantly get the weather from a random place on Earth. I also
+      implemented a feature where I loaded many different popular cities across
+      the globe that the user and quickly select and get the weather.
+    </p>
+
+    <p>
+      In terms of references, for max I used ideas and logic across all lectures
+      and weeks I didn’t really focus on specifics week like I though I would
+      when planning. I think this is because each week has useful and new
+      information thats varies a lot so it all depends on what I’m doing at the
+      time in max. But they were many similar ideas/patchers I kept using
+      throughout my development such as: filters, random and random chance,
+      feedback, latch, cycle, clip, phasor, delays, mix, slide, noise, scale,
+      boolean logic (==, <, >, &&, ?, %, *) and go abstractions (mainly
+      go.ram2trig, go.harmonic, go.random, go.ramp.euclidean and
+      go.noise.normal). I used a lot of these because my goal was to create
+      natural organic sounds so I used a lot of noise and cycle/phasor signals
+      and because of that I need a lot of tools to filter it in different ways
+      and manipulate it. I would like to emphasize that the textbook patchers
+      from weeks 5, 6 and 7 were where I ended up looking the most just because
+      of the similarities it has to my project where theres a lot of generating
+      ramps, filtering and mixing. Also, one function that I was surprised how
+      much I used and how dynamic it is was the mix function, which I used
+      whenever I could because of I could use it as a mixer, filter with
+      interpolation and as a gate where you send 0s and 1s to it.
+    </p>
+
+    <p>
+      I came across a decent amount of challenges during this project but
+      surprisingly they were mostly all during the begining phase because it
+      took a long time to figure out how to correctly add in extra params in max
+      to get the data from the API key where you need to locate exactly where
+      its being stored in the JSON data and if your slightly off you receive a
+      zero, and its not like using visual studio code where I quickly overcame
+      obstacles by debugging and using the console, but in max I find debugging
+      much harder because its very hard to locate the part of the patcher that
+      causes the error, unlike in regular coding where it prints the exact line
+      causing an error. So it took a lot of trial and error to figure out how to
+      get each param passed from the JSON just to the gen in max but eventually
+      I did then one of the hardest parts was getting the sunrise, sunset and dt
+      params to work. I already talked about this in max so in short I
+      eventually found out after trying everything else that the numbers were in
+      seconds from 1970 so the number was way to big for max to use it. So I had
+      to make my own functions to divide down the number a lot into number I
+      could use. So I decided to make my function output those times in 24:00
+      format so I can easily understand them when I use them. This part took
+      time but it was very easy to work through because just like coding you can
+      quickly test your functions and see the results instantly. Another
+      challenge was exporting RNBO and loading it into my code which again took
+      a long time to perfect. This is because when importing a RNBO patcher into
+      javascript it uses the same name of ur gen to store values like
+      myGen.temp, so unless if you don’t always name your gen patchers the same
+      like I did, each time I loaded one in I would have to go in and change so
+      many values and variables to reflect the correct gen patchers name in
+      order for it to work. The first time I did it, a lot of my names were
+      still from the in class example so they did not work at all. But since
+      then I have kept using the same name for my new versions of my gen patcher
+      and double checking to make sure the names in the code match up to the
+      patcher and it has been working great.
+    </p>
+
+  </body>
+</html>
