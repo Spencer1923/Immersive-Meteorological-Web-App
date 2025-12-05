@@ -274,7 +274,7 @@ async function getData() {
     return;
   }
 
-  let key = "1875266a412d9f361985a49c9605d437"; //my personal key
+  let key = "7aa553c6a465f01ce2bf1ea46d98c4b0";
   let url =
     "https://api.openweathermap.org/data/2.5/weather?lat=" +
     lat +
